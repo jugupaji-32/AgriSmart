@@ -6,7 +6,7 @@ A comprehensive digital ecosystem designed to modernize traditional agriculture 
 
 ## 🚀 Live Demo | Project Repository
 
-*(https://int-252-project-one.vercel.app/)*
+*(https://aagrismart.netlify.app/)*
 
 ---
 
