@@ -12,8 +12,8 @@ A comprehensive digital ecosystem designed to modernize traditional agriculture 
 
 ## 👥 The Team
 - **Pinak Kundu** (Lead Developer)  
-- Shubhajit
-- Animesh  
+- Jugal Kishore
+- Techiemen 
 
 ---
 
