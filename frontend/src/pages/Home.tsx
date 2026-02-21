@@ -534,7 +534,7 @@ const Home = () => {
               <span className="w-px h-3 bg-gray-300"></span>
               <a href="#" className="hover:text-gray-900">Privacy Policy</a>
             </div>
-            <p className="text-center sm:text-right">© 2025 AgriSmart Company Limited</p>
+            <p className="text-center sm:text-right">© 2026 AgriSmart Company Limited</p>
           </div>
         </div>
       </section>
