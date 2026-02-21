@@ -1,0 +1,26 @@
+services:
+  # Backend Web Service (Frontend deployed on Vercel)
+  - type: web
+    name: crop-recommender-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd nodejs-backend && npm install
+    startCommand: cd nodejs-backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CROP_PREDICTION_API_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        value: https://int-252-project-one.vercel.app
+      - key: OPENWEATHER_API_KEY
+        sync: false

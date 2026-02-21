@@ -1,0 +1,293 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Agricultural Pastel Theme - AI-powered Crop Recommendation Platform
+Color Palette:
+- Jonquil (#EAC800) - Primary actions, highlights
+- Arylide Yellow (#EAD465) - Secondary accents  
+- Vanilla (#F5EAB9) - Backgrounds, cards
+- Olive (#7E8407) - Interactive elements
+- Dark Moss Green (#254E06) - Text, icons, high contrast
+*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+@layer base {
+  :root {
+    /* Agricultural Pastel Color System */
+    --jonquil: 49 100% 46%;           /* #EAC800 - Primary yellow */
+    --arylide-yellow: 49 74% 67%;     /* #EAD465 - Secondary yellow */
+    --vanilla: 46 77% 85%;            /* #F5EAB9 - Light cream background */
+    --olive: 71 94% 26%;              /* #7E8407 - Green accent */
+    --dark-moss: 92 91% 8%;           /* #254E06 - Dark green text */
+    
+    /* Base colors using agricultural palette */
+    --background: 46 77% 96%;         /* Very light vanilla */
+    --foreground: 92 91% 8%;          /* Dark moss green for text */
+
+    --card: 46 77% 85%;               /* Vanilla cards */
+    --card-foreground: 92 91% 8%;     /* Dark moss green text */
+
+    --primary: 49 100% 46%;           /* Jonquil primary */
+    --primary-foreground: 0 0% 100%;  /* White text on primary */
+
+    --secondary: 49 74% 67%;          /* Arylide yellow secondary */
+    --secondary-foreground: 92 91% 8%; /* Dark moss text */
+
+    --accent: 71 94% 26%;             /* Olive accent */
+    --accent-foreground: 0 0% 100%;   /* White on accent */
+
+    --muted: 46 77% 90%;              /* Light vanilla muted */
+    --muted-foreground: 92 50% 30%;   /* Lighter moss for muted text */
+
+    --destructive: 0 84% 60%;         /* Error red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 46 40% 80%;             /* Light border */
+    --input: 46 77% 93%;              /* Input background */
+    --ring: 71 94% 26%;               /* Olive focus ring */
+
+    --radius: 0.75rem;                /* 12px rounded corners */
+
+    /* Success/positive states */
+    --success: 71 94% 26%;            /* Olive for success */
+    --success-foreground: 0 0% 100%;
+
+    /* Warning states */
+    --warning: 49 100% 46%;           /* Jonquil for warnings */
+    --warning-foreground: 92 91% 8%;
+
+    /* Info states */
+    --info: 49 74% 67%;               /* Arylide for info */
+    --info-foreground: 92 91% 8%;
+  }
+
+  .dark {
+    /* Dark mode with agricultural theme */
+    --background: 92 91% 5%;          /* Very dark moss */
+    --foreground: 46 77% 95%;         /* Light vanilla text */
+
+    --card: 92 91% 8%;                /* Dark moss cards */
+    --card-foreground: 46 77% 95%;
+
+    --primary: 49 100% 50%;           /* Brighter jonquil in dark */
+    --primary-foreground: 92 91% 8%;
+
+    --secondary: 49 74% 60%;          /* Adjusted arylide */
+    --secondary-foreground: 92 91% 8%;
+
+    --accent: 71 94% 35%;             /* Brighter olive */
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 92 50% 15%;              /* Muted dark moss */
+    --muted-foreground: 46 40% 70%;
+
+    --border: 92 50% 20%;
+    --input: 92 50% 12%;
+    --ring: 71 94% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  /* Custom scrollbar hiding for clean UI */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  h1 { @apply text-3xl md:text-4xl; }
+  h2 { @apply text-2xl md:text-3xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  h4 { @apply text-lg md:text-xl; }
+  h5 { @apply text-base md:text-lg; }
+  h6 { @apply text-sm md:text-base; }
+}
+
+/* Custom Agricultural Components */
+@layer components {
+  /* Custom Button Styles */
+  .btn-primary {
+    @apply bg-jonquil hover:bg-jonquil/90 text-foreground font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-arylide-yellow hover:bg-arylide-yellow/80 text-foreground font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-accent {
+    @apply bg-olive hover:bg-olive/90 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-olive text-olive hover:bg-olive hover:text-white font-medium px-6 py-3 rounded-xl transition-all duration-200;
+  }
+
+  /* Custom Card Styles */
+  .card-pastel {
+    @apply bg-vanilla border border-vanilla/50 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6;
+  }
+  
+  .card-elevated {
+    @apply bg-vanilla border border-vanilla/50 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 p-6;
+  }
+
+  /* Custom Input Styles */
+  .input-field {
+    @apply bg-input border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+  
+  .input-field:focus {
+    @apply border-olive ring-olive/20;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-foreground/80 hover:text-foreground font-medium px-4 py-2 rounded-lg hover:bg-vanilla/50 transition-all duration-200;
+  }
+  
+  .nav-link-active {
+    @apply text-foreground bg-vanilla font-semibold px-4 py-2 rounded-lg;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-agricultural {
+    background: linear-gradient(135deg, hsl(var(--vanilla)) 0%, hsl(var(--arylide-yellow)) 100%);
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--arylide-yellow)) 0%, hsl(var(--jonquil)) 100%);
+  }
+
+  /* Toast/notification styles */
+  .toast-success {
+    @apply bg-olive text-white rounded-xl;
+  }
+  
+  .toast-error {
+    @apply bg-destructive text-destructive-foreground rounded-xl;
+  }
+  
+  .toast-warning {
+    @apply bg-jonquil text-foreground rounded-xl;
+  }
+
+  /* Progress indicators */
+  .progress-bar {
+    @apply bg-muted rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply bg-olive h-full transition-all duration-500 ease-out rounded-full;
+  }
+
+  /* Upload area styles */
+  .upload-area {
+    @apply border-2 border-dashed border-olive/30 bg-vanilla/50 rounded-xl p-8 text-center hover:border-olive/50 hover:bg-vanilla/70 transition-all duration-200;
+  }
+
+  /* Chart/data visualization */
+  .chart-primary { @apply text-olive; }
+  .chart-secondary { @apply text-arylide-yellow; }
+  .chart-accent { @apply text-jonquil; }
+}
+
+/* Utility classes for agricultural theme */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Prevent horizontal overflow globally */
+  .prevent-horizontal-scroll {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  /* Mobile-safe containers */
+  .mobile-safe-container {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Color utilities */
+  .text-jonquil { color: hsl(var(--jonquil)); }
+  .text-arylide-yellow { color: hsl(var(--arylide-yellow)); }
+  .text-vanilla { color: hsl(var(--vanilla)); }
+  .text-olive { color: hsl(var(--olive)); }
+  .text-dark-moss { color: hsl(var(--dark-moss)); }
+  
+  .bg-jonquil { background-color: hsl(var(--jonquil)); }
+  .bg-arylide-yellow { background-color: hsl(var(--arylide-yellow)); }
+  .bg-vanilla { background-color: hsl(var(--vanilla)); }
+  .bg-olive { background-color: hsl(var(--olive)); }
+  .bg-dark-moss { background-color: hsl(var(--dark-moss)); }
+
+  /* Spacing utilities for agricultural layouts */
+  .section-padding { @apply py-12 md:py-16 lg:py-20; }
+  .container-padding { @apply px-4 md:px-6 lg:px-8; }
+  
+  /* Responsive text utilities */
+  .text-responsive-sm { @apply text-sm md:text-base; }
+  .text-responsive-base { @apply text-base md:text-lg; }
+  .text-responsive-lg { @apply text-lg md:text-xl; }
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

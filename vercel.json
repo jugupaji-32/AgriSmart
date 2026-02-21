@@ -1,0 +1,52 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "nodejs-backend/server.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/nodejs-backend/server.js"
+        },
+        {
+            "src": "/uploads/(.*)",
+            "dest": "/nodejs-backend/server.js"
+        },
+        {
+            "src": "/assets/(.*)",
+            "dest": "/frontend/dist/assets/$1"
+        },
+        {
+            "src": "/images/(.*)",
+            "dest": "/frontend/dist/images/$1"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/frontend/dist/favicon.ico"
+        },
+        {
+            "src": "^/(?!api|uploads|assets|images).*",
+            "dest": "/frontend/dist/index.html"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "/nodejs-backend/server.js"
+        },
+        {
+            "source": "/:path*",
+            "destination": "/frontend/dist/index.html"
+        }
+    ]
+}
